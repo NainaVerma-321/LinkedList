@@ -126,6 +126,16 @@ void delAtPos(int pos,Node*&head){
     }
 }
 
+void freelist(Node*&head){
+    Node*temp=head;
+    while(head!=NULL){
+        head=head->next;
+        delete(temp);
+        temp=head;
+    }
+    head=NULL;
+}
+
 int main() {
 
 
@@ -168,7 +178,7 @@ int main() {
     cout<<"press enter to exit"<<endl;
     cin.get();
     
-    
+    freelist(head);
 
 
     return 0;
